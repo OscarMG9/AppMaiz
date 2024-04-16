@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="..\Julio-proyecto\inicio.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Aplicación Móvil</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="../Julio-proyecto/img/1.png" alt="Logo de la aplicación" id="logo">
+            <h1 id="app-name">Mi Aplicación Móvil</h1>
+        </div>
+        <div class="content">
+            <p>Bienvenido a Mi Aplicación Móvil. Esta es una aplicación genial que hace cosas increíbles.</p>
+            <img src="../Julio-proyecto/img/m.jpe" id="main-image" style="max-width: 100%; height: auto;">
+            <div id="disease-result"></div> <!-- Aquí se mostrará el resultado de la predicción -->
+        </div>
+        <button id="star-button">Subir imagen</button>
+        <div class="footer">
+            <p>© 2024 Mi Aplicación Móvil</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('star-button').addEventListener('click', function() {
+            var input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('main-image').src = e.target.result;
+                    predictDisease(e.target.result); // Llama a la función para predecir la enfermedad
+                }
+                reader.readAsDataURL(file);
+            }
+            input.click();
+        });
+
+        // Función para predecir la enfermedad en la planta de maíz
+        function predictDisease(imageData) {
+            // Enviar la imagen al servidor para la predicción
+            fetch('/predict', {
+                method: 'POST',
+                body: JSON.stringify({imageData: imageData}),
+                headers:{
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('disease-result').innerText = "La planta de maíz tiene la enfermedad: " + data.disease;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+   
+
+
+</body></html>

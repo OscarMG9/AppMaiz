@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Color de fondo similar a las aplicaciones móviles */
+}
+
+.container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra similar a la de las ventanas de aplicaciones móviles */
+    min-height: 100vh; /* Establece la altura mínima como el 100% de la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye uniformemente los elementos en el contenedor */
+}
+
+.header {
+    background-color: #4CAF50; /* Color de encabezado similar al de las aplicaciones móviles */
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    display: flex;
+            align-items: center; 
+}
+
+#logo {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+     margin-right: 1px;
+}
+
+#app-name {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.content {
+    padding: 20px;
+    text-align: center; /* Centra el contenido horizontalmente */
+    flex-grow: 1; /* Permite que este elemento ocupe el espacio restante en el contenedor */
+}
+
+.footer {
+    background-color: #ddd; /* Color de pie de página similar al de las aplicaciones móviles */
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+#star-button {
+    margin-top: 20px; /* Espacio adicional entre el botón y el borde inferior */
+    margin-bottom: 20px; /* Margen inferior para separar el botón del pie de página */
+    width: 7rem; /* Ancho del botón */
+    height: 4rem; /* Alto del botón */
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Transición suave para la transformación */
+    margin-left: auto; /* Centra horizontalmente el botón */
+    margin-right: auto; /* Centra horizontalmente el botón */
+}
+
+#star-button:hover {
+    background-color: #45a049; /* Color de fondo al pasar el ratón similar al de las aplicaciones móviles */
+    transform: scale(1.1); /* Zoom del 10% al pasar el ratón */
+}
+
+ /* Estilo para la imagen que se adapta al tamaño del contenedor */
+.content img {
+    max-width: 50%;
+    height: auto; /* Para mantener la proporción */
+}
